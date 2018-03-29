@@ -89,4 +89,15 @@ class Account extends BaseObject
         $address = strtoupper($address);
         return wordwrap($address, 6, '-', true);
     }
+
+    /**
+     * Normalize address string
+     * @param $address
+     * @return string
+     */
+    public static function normalizeAddress($address)
+    {
+        $address = preg_replace('/-/', '', $address);
+        return strtolower($address);
+    }
 }

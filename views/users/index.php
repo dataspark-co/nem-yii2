@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'username',
                 'format' => 'html',
                 'value' => function($model){
-                    return Html::a($model->username, ['users/index']);
+                    return Html::a($model->username, ['users/view', 'id' => $model->id]);
                 }
             ],
             [

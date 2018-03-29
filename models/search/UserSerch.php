@@ -2,10 +2,10 @@
 
 namespace app\models\search;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\User;
+use app\components\system\Account;
 
 /**
  * UserSerch represents the model behind the search form of `app\models\User`.
@@ -68,8 +68,7 @@ class UserSerch extends User
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'user_public_key', $this->user_public_key])
-            ->andFilterWhere(['like', 'user_private_key', $this->user_private_key])
-            ->andFilterWhere(['like', 'user_address', $this->user_address]);
+            ->andFilterWhere(['like', 'user_address', Account::normalizeAddress($this->user_address)]);
 
         return $dataProvider;
     }
