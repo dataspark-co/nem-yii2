@@ -80,7 +80,7 @@ class Registration extends MosaicDefinition
     public function properties(array $properties = null)
     {
         $data = $properties ?: [
-            new MosaicProperty(["name" => "divisibility", "value" => 0]),
+            new MosaicProperty(["name" => "divisibility", "value" => 1]),
             new MosaicProperty(["name" => "initialSupply", "value" => 1]),
             new MosaicProperty(["name" => "supplyMutable", "value" => false]),
             new MosaicProperty(["name" => "transferable", "value" => true]),
